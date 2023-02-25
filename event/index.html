@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+    <div id="app">
+        Total cost: {{dollar}}
+        <button v-on:click="dollar++">+1</button>
+        <button v-on:click="dollar--">-1</button>
+        <br><hr>
+        Total Bill: {{tk}}
+        <button @click="tk++">+1</button>
+        <button @click="tk--">-1</button>
+        <br><hr>
+        Total Product: {{amount}}
+        <button @click="Amount(+1)">+1</button>
+        <button @dblclick="Amount(-1)">-1</button>
+    </div>
+</head>
+<body>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        let event = new Vue({
+            el: `#app`,
+            data: {
+                dollar: 100,
+                tk: 200,
+                amount: 10,
+            },
+            methods: {
+                Amount(n) {
+                    this.amount += n;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

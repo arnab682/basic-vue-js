@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>If else condition</title>
+   
+</head>
+<body>
+  <div id="app">
+    <h2 v-if="name">What's your name?</h2>
+    <h2 v-if="age">What's your age?</h2>
+    <br>
+    <button @click="showName">Show Name | {{name}}</button>
+    <button @click="showAge">Show age | {{age}}</button>
+    <br>
+    <h2 v-if="what">What?</h2>
+    <h2 v-else-if="why">Why?</h2>
+    <br>
+    <button @click="showWhat">Show what | {{what}}</button>
+    <button @click="showWhy">Show why | {{why}}</button>
+  </div>
+  
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+      let binding = new Vue({
+        el: '#app',
+        data:{
+          name: true,
+          age: false,
+          what: true,
+          why: false,
+        },
+        methods: {
+         showName(){
+          this.name = !this.name
+         },
+         showAge(){
+          this.age = !this.age
+         },
+         showWhat(){
+          this.what = !this.what
+         },
+         showWhy(){
+          this.why = !this.why
+         }
+        },
+      })
+    </script>
+    
+
+</body>
+</html>
