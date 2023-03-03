@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V For</title>
+   
+</head>
+<body>
+  <div id="app">
+    <ol>
+        <li v-for="name in names">{{name}}</li>
+    </ol>
+    <ul>
+        <li v-for="fruit in fruits">{{fruit.name}} {{fruit.color}} {{fruit.weight}}</li>
+    </ul>
+  </div>
+  
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+      let a = new Vue({
+        el: '#app',
+        data:{
+          names: ['a', 'b', 'c', 'd'],
+          fruits: [
+            {name:'Mango', color:'Green', weight:10},
+            {name:'Orange', color:'Orange', weight:20},
+            {name:'Banana', color:'Yellow', weight:30},
+          ]
+        },
+        methods: {
+         
+        },
+      })
+    </script>
+    
+
+</body>
+</html>

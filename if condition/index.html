@@ -20,6 +20,10 @@
     <br>
     <button @click="showWhat">Show what | {{what}}</button>
     <button @click="showWhy">Show why | {{why}}</button>
+    <br>
+    <h2 v-if="first">Arnab</h2>
+    <h2 v-else-if="middle">Das</h2>
+    <h2 v-else="last">Anik</h2>
   </div>
   
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -31,7 +35,10 @@
           name: true,
           age: false,
           what: true,
-          why: false,
+          why: true,
+          first: false,
+          middle: false,
+          last: true,
         },
         methods: {
          showName(){
