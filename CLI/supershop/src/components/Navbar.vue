@@ -13,12 +13,10 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Link</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
+           
           </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search">
+          <form @submit.prevent="search" class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" v-model="keyword" type="search" placeholder="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
         </div>
@@ -28,7 +26,16 @@
 
 <script>
 export default {
-
+  data() {
+    return {
+      keyword: '',
+    } 
+  },
+  methods: {
+    search(keyword){
+     this.$emit('search', this.keyword)
+    }
+  },
 }
 </script>
 
