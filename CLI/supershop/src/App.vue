@@ -24,24 +24,25 @@
 
 <script>
 import Navbar from './components/Navbar'
-import Inventory from './components/Inventory'
+// import Inventory from './components/Inventory'
 import Cart from './components/Cart'
 import data from './data.js'
 
 export default {
   components: {
-    Navbar, Inventory, Cart
+    Navbar, Cart
   },
+
   data() {
     return {
       items: [],
       cart: []
     }
   },
-  mounted() {
-    //console.log(data)
-    this.items = data
-  },
+  // mounted() {
+  //   //console.log(data)
+  //   this.items = data
+  // },
   methods: {
     addCartItem(item) {
       this.cart.push(item)
