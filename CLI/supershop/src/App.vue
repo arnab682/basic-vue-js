@@ -26,7 +26,7 @@
 import Navbar from './components/Navbar'
 // import Inventory from './components/Inventory'
 import Cart from './components/Cart'
-import data from './data.js'
+//import data from './data.js'
 
 export default {
   components: {
@@ -44,16 +44,16 @@ export default {
   //   this.items = data
   // },
   methods: {
+    search(keyword) {
+      this.items = data.filter(item => {
+        return item.title.toLowerCase().indexOf(keyword.toLowerCase()) !== -1
+      })
+    },
     addCartItem(item) {
       this.cart.push(item)
     },
     removeItem(index) {
       this.cart.splice(index, 1)
-    },
-    search(keyword) {
-      this.items = data.filter(item => {
-        return item.title.toLowerCase().indexOf(keyword.toLowerCase()) !== -1
-      })
     }
   }
 }

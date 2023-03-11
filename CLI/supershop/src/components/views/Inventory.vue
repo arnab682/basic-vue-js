@@ -10,7 +10,7 @@
             </router-link>
                 <div class="card-footer">
                     <span class="card-text">${{ item.price }}</span>
-                    <a @click="addToCart(item)" class="btn btn-sm btn-primary float-right">+Add</a>
+                    <a @click="addToCart(item)" class="btn btn-sm btn-primary float-right">+ add</a>
                 </div>
         </div>
         
@@ -25,7 +25,12 @@ export default {
     data() {
         return {
             loading: true,
-            items: []
+            //items: []
+        }
+    },
+    computed: {
+        items() {
+            return this.$store.getters.getInventory
         }
     },
     mounted() {
@@ -33,14 +38,16 @@ export default {
     },
     methods: {
         addToCart(item){
-            this.$emit('newItemAdded', item)
+            //this.$emit('newItemAdded', item)
+            this.$store.dispatch('addToCart', item)
         },
         fetchInventory() {
             var self = this
             axios.get('http://localhost:3000/items').then(response => {
                 //console.log(response)
                 setTimeout(function() {
-                    self.items = response.data
+                    //self.items = response.data
+                    self.$store.commit('setInventory', response.data)
                     self.loading = false
                 }, 1000)
                 
